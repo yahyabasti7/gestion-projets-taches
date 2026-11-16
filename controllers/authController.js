@@ -30,7 +30,6 @@ const register = async (req, res) => {
 
         await user.save();
 
-        // نعملو Token للمستخدم بعد ما يتسجل بنجاح
         const token = jwt.sign(
             { id: user._id, role: user.role },
             process.env.JWT_SECRET,
@@ -49,9 +48,16 @@ const register = async (req, res) => {
         });
 
     } catch (error) {
+        console.error('Erreur register:', error.message);
+
+        if (error.code === 11000) {
+            return res.status(400).json({
+                message: "Ce nom d'utilisateur existe déjà"
+            });
+        }
+
         res.status(500).json({
-            message: "Erreur lors de la création du compte",
-            error: error.message
+            message: "Erreur lors de la création du compte"
         });
     }
 };
@@ -75,7 +81,6 @@ const login = async (req, res) => {
             });
         }
 
-        // نقارنو كلمة السر المدخلة بكلمة السر المشفرة
         const isPasswordValid = await bcrypt.compare(
             password,
             user.password
@@ -87,7 +92,6 @@ const login = async (req, res) => {
             });
         }
 
-        // نعملو Token جديد بعد نجاح تسجيل الدخول
         const token = jwt.sign(
             { id: user._id, role: user.role },
             process.env.JWT_SECRET,
@@ -106,9 +110,10 @@ const login = async (req, res) => {
         });
 
     } catch (error) {
+        console.error('Erreur login:', error.message);
+
         res.status(500).json({
-            message: 'Erreur lors de la connexion',
-            error: error.message
+            message: 'Erreur lors de la connexion'
         });
     }
 };
