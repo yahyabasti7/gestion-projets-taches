@@ -2,19 +2,22 @@
 const Project = require('../models/Project');
 
 // n3mlou projet jdid lel user eli 3amel Login
+
 const createProject = async (req, res) => {
     try {
         const { nom, description } = req.body;
 
-        if (!nom) {
+        if (!nom || typeof nom !== 'string' || !nom.trim()) {
             return res.status(400).json({
                 message: 'Le nom du projet est obligatoire'
             });
         }
 
         const project = new Project({
-            nom,
-            description,
+            nom: nom.trim(),
+            description: typeof description === 'string'
+                ? description.trim()
+                : '',
             owner: req.user.id
         });
 
@@ -26,12 +29,14 @@ const createProject = async (req, res) => {
         });
 
     } catch (error) {
+        console.error('Erreur createProject:', error.message);
+
         res.status(500).json({
-            message: 'Erreur lors de la création du projet',
-            error: error.message
+            message: 'Erreur lors de la création du projet'
         });
     }
 };
+
 
 // njibou les projets 7asb role mta3 el user
 const getProjects = async (req, res) => {
