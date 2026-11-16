@@ -1,0 +1,2852 @@
+{
+	"info": {
+		"_postman_id": "a7d08acd-845d-4562-8a8d-b3212be79178",
+		"name": "API REST - Gestion de Projets et Tâches",
+		"description": "Organized Postman collection for the Node.js / Express / MongoDB / JWT project-and-task management API.\n\nOriginal URLs, tokens, credentials and variables are preserved exactly as in the source collection (base URL: http://localhost:3000). Tokens are test JWTs and may be expired: log in again via the Authentication folder to get a fresh one.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Authentication",
+			"description": "Public endpoints used to create accounts and obtain a JWT: POST /api/auth/register and POST /api/auth/login.",
+			"item": [
+				{
+					"name": "Auth - Login User (admin) #1",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"admin\",\r\n    \"password\": \"yahya77u\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"admin\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login User (testuser2)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"testuser2\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"testuser2\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Register User (testuser2) #1",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Test User 2\",\r\n    \"login\": \"testuser2\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers a new account (testuser2).\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/register`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: nom, login, password.\n**Successful response:** A 2xx response (typically 201 Created) means the account was created."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login User (admin) #2",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"admin\",\r\n    \"password\": \"yahya77u\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"admin\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login User (admin) #3",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"admin\",\r\n    \"password\": \"yahya77u\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"admin\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login User (testuser) #1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "http://localhost:3000/api/projects",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"testuser\",\n    \"password\": \"Test123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"testuser\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login User (testuser) #2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"testuser\",\n    \"password\": \"Test123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"testuser\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Register User (testuser) #1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"Test User\",\n    \"login\": \"testuser\",\n    \"password\": \"Test123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers a new account (testuser).\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/register`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: nom, login, password.\n**Successful response:** A 2xx response (typically 201 Created) means the account was created."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login User (testuser) #3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"testuser\",\n    \"password\": \"Test123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"testuser\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Register User (testuser) #2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"Test User\",\n    \"login\": \"testuser\",\n    \"password\": \"Test123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers a new account (testuser).\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/register`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: nom, login, password.\n**Successful response:** A 2xx response (typically 201 Created) means the account was created."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login User (admin) #4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"admin\",\r\n    \"password\": \"yahya77u\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in with the \"admin\" account.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/login`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: login, password.\n**Successful response:** A 2xx response means the credentials were accepted; the response is expected to contain the JWT used as Bearer token in other requests. An error status means the credentials were rejected."
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Register User (testuser2) #2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Test User 2\",\r\n    \"login\": \"testuser2\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers a new account (testuser2).\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/auth/register`\n**Authentication:** Not required (public endpoint).\n**Role:** Any visitor (no role).\n**Parameters:** JSON body fields: nom, login, password.\n**Successful response:** A 2xx response (typically 201 Created) means the account was created."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Users / Manager",
+			"description": "Reserved for Manager/User-management requests. The original collection contains no request targeting a user-management endpoint, so this folder is intentionally empty (no endpoint was invented). Manager/User role usage appears in the tokens of other requests (see their descriptions).",
+			"item": []
+		},
+		{
+			"name": "3. Projects",
+			"description": "Project endpoints under /api/projects: create, list, search (?search=) and sort (?sortBy=&order=).",
+			"item": [
+				{
+					"name": "Projects - Create Project (token: 14qh)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_14qh}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Projet Test 2\",\r\n    \"description\": \"Deuxième projet de test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Creates a new project.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token stored in {{json_web_token_14qh}}.\n**Role:** Depends on the token stored in {{json_web_token_14qh}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: nom, description.\n**Successful response:** A 200/201 response means the resource was created and returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Get All Projects (Manager Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQ2MzE5LCJleHAiOjE3OTQ5MzI3MTl9.pXf8ZHWsFL2LUdwWj3sy2Rg2-_cuylBqHIcVvSAwCd8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Retrieves the list of projects.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** None.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Get All Projects (User Token) #1",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyZGJkMTkxNTEyMWExZjUxZjcyZCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQ2MTg1LCJleHAiOjE3OTQ5MzI1ODV9.hK2RpuMt2l3_Kx4NKyo9br-fCKTCEJlWEX9QZunnbco",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Retrieves the list of projects.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** None.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Sort Projects by Name (User Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects?sortBy=nom&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "nom"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists projects sorted by name (ascending).\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects?sortBy=nom&order=asc`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: sortBy=nom, order=asc.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Sort Projects by Name (Manager Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQ1MDM5LCJleHAiOjE3OTQ5MzE0Mzl9.I-FfF5vtZTyCzEyPy7fcvqKISjLzEJT3tw6Qf0tSzl8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects?sortBy=nom&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "nom"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists projects sorted by name (ascending).\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects?sortBy=nom&order=asc`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: sortBy=nom, order=asc.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Search Projects by Name (Manager Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQ1MDM5LCJleHAiOjE3OTQ5MzE0Mzl9.I-FfF5vtZTyCzEyPy7fcvqKISjLzEJT3tw6Qf0tSzl8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects?search=Mon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Mon"
+								}
+							]
+						},
+						"description": "Lists projects matching the search term \"Mon\".\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects?search=Mon`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: search=Mon.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Search Projects by Name (token placeholder)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "http://localhost:3000/api/projects?search=Mon",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects?search=Mon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Mon"
+								}
+							]
+						},
+						"description": "Lists projects matching the search term \"Mon\".\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects?search=Mon`\n**Authentication:** Required - Bearer token. NOTE: in the original the token field contains a URL instead of a JWT (kept as is); paste a valid JWT to use it.\n**Role:** Depends on the token you paste (User or Manager).\n**Parameters:** Query parameters: search=Mon.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Search Projects by Name (User Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects?search=Mon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Mon"
+								}
+							]
+						},
+						"description": "Lists projects matching the search term \"Mon\".\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects?search=Mon`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: search=Mon.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Get All Projects (User Token) #2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Retrieves the list of projects.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** None.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Create Project (User Token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"Mon premier projet\",\n    \"description\": \"Projet de gestion des tâches\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Creates a new project (\"Mon premier projet\").\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** JSON body fields: nom, description.\n**Successful response:** A 200/201 response means the resource was created and returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Create Project (token placeholder)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "http://localhost:3000/api/projects",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"Mon premier projet\",\n    \"description\": \"Projet de gestion des tâches\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Creates a new project (\"Mon premier projet\").\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token. NOTE: in the original the token field contains a URL instead of a JWT (kept as is); paste a valid JWT to use it.\n**Role:** Depends on the token you paste (User or Manager).\n**Parameters:** JSON body fields: nom, description.\n**Successful response:** A 200/201 response means the resource was created and returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Get All Projects (token: 0xgt)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0xgt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Retrieves the list of projects.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0xgt}}.\n**Role:** Depends on the token stored in {{json_web_token_0xgt}}; the role is not recorded in the original collection.\n**Parameters:** None.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Get All Projects (token: 0j0k)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0j0k}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						},
+						"description": "Retrieves the list of projects.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0j0k}}.\n**Role:** Depends on the token stored in {{json_web_token_0j0k}}; the role is not recorded in the original collection.\n**Parameters:** None.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Sort Projects by Name (token: 0qfc)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0qfc}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects?sortBy=nom&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "nom"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists projects sorted by name (ascending).\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects?sortBy=nom&order=asc`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0qfc}}.\n**Role:** Depends on the token stored in {{json_web_token_0qfc}}; the role is not recorded in the original collection.\n**Parameters:** Query parameters: sortBy=nom, order=asc.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Projects - Sort Projects by Name (token: 0oqm)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0oqm}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects?sortBy=nom&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "nom"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists projects sorted by name (ascending).\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/projects?sortBy=nom&order=asc`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0oqm}}.\n**Role:** Depends on the token stored in {{json_web_token_0oqm}}; the role is not recorded in the original collection.\n**Parameters:** Query parameters: sortBy=nom, order=asc.\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4. Tasks",
+			"description": "Task endpoints under /api/tasks: create, list by project (/api/tasks/project/:id), search, filter by status, sort and update status (/api/tasks/:id/status).",
+			"item": [
+				{
+					"name": "Tasks - Search, Filter and Sort Tasks by Project (Manager Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQ1MDM5LCJleHAiOjE3OTQ5MzE0Mzl9.I-FfF5vtZTyCzEyPy7fcvqKISjLzEJT3tw6Qf0tSzl8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page&status=doing&sortBy=deadline&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb1a3f56a6023b9e798bb3"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "page"
+								},
+								{
+									"key": "status",
+									"value": "doing"
+								},
+								{
+									"key": "sortBy",
+									"value": "deadline"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists the tasks of a project combining search, status filter and sort by deadline.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page&status=doing&sortBy=deadline&order=asc`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: search=page, status=doing, sortBy=deadline, order=asc. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Sort Tasks by Deadline",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQ1MDM5LCJleHAiOjE3OTQ5MzE0Mzl9.I-FfF5vtZTyCzEyPy7fcvqKISjLzEJT3tw6Qf0tSzl8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?sortBy=deadline&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb1a3f56a6023b9e798bb3"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "deadline"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists the tasks of a project sorted by deadline (ascending).\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?sortBy=deadline&order=asc`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: sortBy=deadline, order=asc. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Filter Tasks by Status",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQ1MDM5LCJleHAiOjE3OTQ5MzE0Mzl9.I-FfF5vtZTyCzEyPy7fcvqKISjLzEJT3tw6Qf0tSzl8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?status=doing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb1a3f56a6023b9e798bb3"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "doing"
+								}
+							]
+						},
+						"description": "Lists the tasks of a project filtered by status \"doing\".\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?status=doing`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: status=doing. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Search Tasks by Keyword (Manager Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQ1MDM5LCJleHAiOjE3OTQ5MzE0Mzl9.I-FfF5vtZTyCzEyPy7fcvqKISjLzEJT3tw6Qf0tSzl8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb1a3f56a6023b9e798bb3"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "page"
+								}
+							]
+						},
+						"description": "Lists the tasks of a project whose search match is \"page\".\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Query parameters: search=page. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Search Tasks by Keyword (token placeholder)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb1a3f56a6023b9e798bb3"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "page"
+								}
+							]
+						},
+						"description": "Lists the tasks of a project whose search match is \"page\".\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page`\n**Authentication:** Required - Bearer token. NOTE: in the original the token field contains a URL instead of a JWT (kept as is); paste a valid JWT to use it.\n**Role:** Depends on the token you paste (User or Manager).\n**Parameters:** Query parameters: search=page. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Update Task Status (User Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"doing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb1bbb0fdb1e4f231b06ee",
+								"status"
+							]
+						},
+						"description": "Updates the status of a task to \"doing\".\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/status`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** JSON body fields: status. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the task status was updated."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Get Tasks by Project (User Token) #1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb1a3f56a6023b9e798bb3"
+							]
+						},
+						"description": "Retrieves all tasks of a project.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Get Tasks by Project (User Token) #2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb1a3f56a6023b9e798bb3"
+							]
+						},
+						"description": "Retrieves all tasks of a project.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Create Task (User Token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Créer la page d'accueil\",\n    \"description\": \"Développer la page principale\",\n    \"deadline\": \"2026-12-01\",\n    \"project\": \"6afb1a3f56a6023b9e798bb3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						},
+						"description": "Creates a task inside a project.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/tasks`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** JSON body fields: title, description, deadline, project.\n**Successful response:** A 200/201 response means the resource was created and returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Get Tasks by Project (token: 1eji)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_1eji}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb31911915121a1f51f72e"
+							]
+						},
+						"description": "Retrieves all tasks of a project.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e`\n**Authentication:** Required - Bearer token stored in {{json_web_token_1eji}}.\n**Role:** Depends on the token stored in {{json_web_token_1eji}}; the role is not recorded in the original collection.\n**Parameters:** Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Create Task (token: 06qo)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_06qo}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Tester la gestion des tâches\",\r\n    \"description\": \"Créer une tâche pour vérifier le fonctionnement\",\r\n    \"deadline\": \"2026-12-10\",\r\n    \"project\": \"6afb31911915121a1f51f72e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						},
+						"description": "Creates a task (\"Tester la gestion des tâches\") inside a project.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/tasks`\n**Authentication:** Required - Bearer token stored in {{json_web_token_06qo}}.\n**Role:** Depends on the token stored in {{json_web_token_06qo}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: title, description, deadline, project.\n**Successful response:** A 200/201 response means the resource was created and returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Update Task Status (token: 06qo)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_06qo}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"doing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb333c1915121a1f51f72f",
+								"status"
+							]
+						},
+						"description": "Updates the status of a task to \"doing\".\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status`\n**Authentication:** Required - Bearer token stored in {{json_web_token_06qo}}.\n**Role:** Depends on the token stored in {{json_web_token_06qo}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: status. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the task status was updated."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Search, Filter and Sort Tasks by Project (token: 02vq)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_02vq}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e?search=Tester&status=doing&sortBy=deadline&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb31911915121a1f51f72e"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Tester"
+								},
+								{
+									"key": "status",
+									"value": "doing"
+								},
+								{
+									"key": "sortBy",
+									"value": "deadline"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists the tasks of a project combining search (\"Tester\"), status filter and sort by deadline.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e?search=Tester&status=doing&sortBy=deadline&order=asc`\n**Authentication:** Required - Bearer token stored in {{json_web_token_02vq}}.\n**Role:** Depends on the token stored in {{json_web_token_02vq}}; the role is not recorded in the original collection.\n**Parameters:** Query parameters: search=Tester, status=doing, sortBy=deadline, order=asc. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Get Tasks by Project (token: 0lf3)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0lf3}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb31911915121a1f51f72e"
+							]
+						},
+						"description": "Retrieves all tasks of a project.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0lf3}}.\n**Role:** Depends on the token stored in {{json_web_token_0lf3}}; the role is not recorded in the original collection.\n**Parameters:** Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Create Task Without Title (Validation)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0ksv}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Test validation\",\r\n    \"deadline\": \"2026-12-25\",\r\n    \"project\": \"6afb31911915121a1f51f72e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						},
+						"description": "Sends a create-task body with no \"title\" to verify input validation.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/tasks`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0ksv}}.\n**Role:** Depends on the token stored in {{json_web_token_0ksv}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: description, deadline, project.\n**Successful response:** Used as a negative test: a 4xx validation error (e.g. 400) is the expected outcome; a 2xx would mean validation is missing."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Create Task Without Deadline (Validation)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0ksv}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Test validation\",\r\n    \"description\": \"Task sans deadline\",\r\n    \"project\": \"6afb31911915121a1f51f72e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						},
+						"description": "Sends a create-task body with no \"deadline\" to verify input validation.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/tasks`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0ksv}}.\n**Role:** Depends on the token stored in {{json_web_token_0ksv}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: title, description, project.\n**Successful response:** Used as a negative test: a 4xx validation error (e.g. 400) is the expected outcome; a 2xx would mean validation is missing."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Update Task Status to Pending",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0ksv}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb333c1915121a1f51f72f",
+								"status"
+							]
+						},
+						"description": "Updates the status of a task to \"pending\".\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0ksv}}.\n**Role:** Depends on the token stored in {{json_web_token_0ksv}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: status. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the task status was updated."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Search, Filter and Sort Tasks by Project (token placeholder)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e?search=Tester&status=doing&sortBy=deadline&order=asc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e?search=Tester&status=doing&sortBy=deadline&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"project",
+								"6afb31911915121a1f51f72e"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Tester"
+								},
+								{
+									"key": "status",
+									"value": "doing"
+								},
+								{
+									"key": "sortBy",
+									"value": "deadline"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Lists the tasks of a project combining search (\"Tester\"), status filter and sort by deadline.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e?search=Tester&status=doing&sortBy=deadline&order=asc`\n**Authentication:** Required - Bearer token. NOTE: in the original the token field contains a URL instead of a JWT (kept as is); paste a valid JWT to use it.\n**Role:** Depends on the token you paste (User or Manager).\n**Parameters:** Query parameters: search=Tester, status=doing, sortBy=deadline, order=asc. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the request was authorized and the matching list is returned in the JSON body."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Update Task Status (token: 0oqm)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0oqm}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"doing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb1bbb0fdb1e4f231b06ee",
+								"status"
+							]
+						},
+						"description": "Updates the status of a task to \"doing\".\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/status`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0oqm}}.\n**Role:** Depends on the token stored in {{json_web_token_0oqm}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: status. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** 200 OK means the task status was updated."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5. Task Assignment",
+			"description": "Task assignment requests on /api/tasks/:id/assign (userId in the body).",
+			"item": [
+				{
+					"name": "Tasks - Assign Task to User (Manager Token)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQyODg2LCJleHAiOjE3OTQ5MjkyODZ9.PUthlmvPaGKXoNwsUIkyMy65VGju596UGeUNjYtVTyE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"6afb1650860c86c0134916b7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb1bbb0fdb1e4f231b06ee",
+								"assign"
+							]
+						},
+						"description": "Assigns a task to a user (userId in the body).\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** JSON body fields: userId. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** A 2xx response means the task was assigned to the given user."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Assign Task to User (POST Method)",
+					"protocolProfileBehavior": {
+						"disableCookies": false,
+						"followRedirects": true,
+						"maxResponseSize": 52428800,
+						"protocolVersion": "auto",
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIyMGMyNzJmNWIyYjE3NThkZjA5OSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzk0ODQyODg2LCJleHAiOjE3OTQ5MjkyODZ9.PUthlmvPaGKXoNwsUIkyMy65VGju596UGeUNjYtVTyE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"6afb1650860c86c0134916b7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb1bbb0fdb1e4f231b06ee",
+								"assign"
+							]
+						},
+						"description": "Same assignment call as the PUT version but sent with the POST method (kept from the original collection).\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"manager\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** JSON body fields: userId. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** A 2xx response means the task was assigned to the given user."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Assign Task to User (token: 06qo)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_06qo}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"6afb1650860c86c0134916b7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb333c1915121a1f51f72f",
+								"assign"
+							]
+						},
+						"description": "Assigns a task to a user (userId in the body).\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/assign`\n**Authentication:** Required - Bearer token stored in {{json_web_token_06qo}}.\n**Role:** Depends on the token stored in {{json_web_token_06qo}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: userId. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** A 2xx response means the task was assigned to the given user."
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks - Assign Task to User (token: 0oqm)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{json_web_token_0oqm}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"6afb1650860c86c0134916b7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tasks",
+								"6afb1bbb0fdb1e4f231b06ee",
+								"assign"
+							]
+						},
+						"description": "Assigns a task to a user (userId in the body).\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0oqm}}.\n**Role:** Depends on the token stored in {{json_web_token_0oqm}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: userId. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** A 2xx response means the task was assigned to the given user."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6. Security & Authorization",
+			"description": "Requests that verify authentication and authorization behavior: protected routes, missing tokens, role and ownership checks.",
+			"item": [
+				{
+					"name": "Protected Routes",
+					"description": "Routes that require a valid Bearer token.",
+					"item": [
+						{
+							"name": "Security - Access Protected Test Route",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableCookies": false,
+								"followRedirects": true,
+								"maxResponseSize": 52428800,
+								"protocolVersion": "auto",
+								"strictSSL": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQwNjYwLCJleHAiOjE3OTQ5MjcwNjB9.wecBk3dIajS0mqloTXFJ-sSTvki-Wzn1lx6Ws-T8BEM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/test-protected",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"test-protected"
+									]
+								},
+								"description": "Calls the protected test route to verify that a valid Bearer token grants access.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/test-protected`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** None.\n**Successful response:** 200 OK means the Bearer token was accepted by the authentication middleware; 401 means it was missing/invalid."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Unauthorized Access",
+					"description": "Requests sent without (or with an empty) token; a 401 is expected.",
+					"item": [
+						{
+							"name": "Security - Get Filtered Tasks Without Token #1",
+							"protocolProfileBehavior": {
+								"disableCookies": false,
+								"followRedirects": true,
+								"maxResponseSize": 52428800,
+								"protocolVersion": "auto",
+								"strictSSL": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page&status=doing&sortBy=deadline&order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"project",
+										"6afb1a3f56a6023b9e798bb3"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "page"
+										},
+										{
+											"key": "status",
+											"value": "doing"
+										},
+										{
+											"key": "sortBy",
+											"value": "deadline"
+										},
+										{
+											"key": "order",
+											"value": "asc"
+										}
+									]
+								},
+								"description": "Calls the filtered task-list endpoint with an empty Bearer token to verify that unauthenticated access is rejected.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page&status=doing&sortBy=deadline&order=asc`\n**Authentication:** Bearer authorization is configured but the token is intentionally EMPTY (negative test).\n**Role:** None (unauthenticated).\n**Parameters:** Query parameters: search=page, status=doing, sortBy=deadline, order=asc. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as a negative test: a 401 Unauthorized is the expected outcome; a 2xx would mean the route is not protected."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Search Tasks Without Authentication",
+							"protocolProfileBehavior": {
+								"disableCookies": false,
+								"followRedirects": true,
+								"maxResponseSize": 52428800,
+								"protocolVersion": "auto",
+								"strictSSL": false
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"project",
+										"6afb1a3f56a6023b9e798bb3"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "page"
+										}
+									]
+								},
+								"description": "Calls the task search endpoint with no Authorization configured to verify that unauthenticated access is rejected.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page`\n**Authentication:** None configured (unauthenticated).\n**Role:** None (unauthenticated).\n**Parameters:** Query parameters: search=page. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as a negative test: a 401 Unauthorized is the expected outcome; a 2xx would mean the route is not protected."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Assign Endpoint Without Authentication (GET)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"6afb1650860c86c0134916b7\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/assign",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"6afb333c1915121a1f51f72f",
+										"assign"
+									]
+								},
+								"description": "Calls the assign endpoint with GET and no Authorization (body kept from original) to verify unauthenticated access is rejected.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/assign`\n**Authentication:** None configured (unauthenticated).\n**Role:** None (unauthenticated).\n**Parameters:** JSON body fields: userId. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as a negative test: a 401 Unauthorized is the expected outcome; a 2xx would mean the route is not protected."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Get All Tasks Without Authentication",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								},
+								"description": "Calls GET /api/tasks with no Authorization to verify unauthenticated access is rejected.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks`\n**Authentication:** None configured (unauthenticated).\n**Role:** None (unauthenticated).\n**Parameters:** None.\n**Successful response:** Used as a negative test: a 401 Unauthorized is the expected outcome; a 2xx would mean the route is not protected."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Get Filtered Tasks Without Token #2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page&status=doing&sortBy=deadline&order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"project",
+										"6afb1a3f56a6023b9e798bb3"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "page"
+										},
+										{
+											"key": "status",
+											"value": "doing"
+										},
+										{
+											"key": "sortBy",
+											"value": "deadline"
+										},
+										{
+											"key": "order",
+											"value": "asc"
+										}
+									]
+								},
+								"description": "Calls the filtered task-list endpoint with an empty Bearer token to verify that unauthenticated access is rejected.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb1a3f56a6023b9e798bb3?search=page&status=doing&sortBy=deadline&order=asc`\n**Authentication:** Bearer authorization is configured but the token is intentionally EMPTY (negative test).\n**Role:** None (unauthenticated).\n**Parameters:** Query parameters: search=page, status=doing, sortBy=deadline, order=asc. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as a negative test: a 401 Unauthorized is the expected outcome; a 2xx would mean the route is not protected."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Forbidden Access",
+					"description": "Requests meant to check that a token lacking the required role is refused (403 expected where the API restricts the action).",
+					"item": [
+						{
+							"name": "Security - Assign Task With User Role Token (PUT)",
+							"protocolProfileBehavior": {
+								"disableCookies": false,
+								"followRedirects": true,
+								"maxResponseSize": 52428800,
+								"protocolVersion": "auto",
+								"strictSSL": false
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZmIxNjUwODYwYzg2YzAxMzQ5MTZiNyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk0ODQxMTE3LCJleHAiOjE3OTQ5Mjc1MTd9.k7L32kxA9ZxMNwyAkaAkQWYUH8Ha70ZwYIzMH8ut6TQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"6afb1650860c86c0134916b7\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"6afb1bbb0fdb1e4f231b06ee",
+										"assign"
+									]
+								},
+								"description": "Attempts to assign a task to a user while authenticated with a token whose role is \"user\", to verify role-based restrictions on assignment.\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb1bbb0fdb1e4f231b06ee/assign`\n**Authentication:** Required - Bearer token (original token kept in the request).\n**Role:** Used with a \"user\" role token (role claim of the original token). Roles permitted by the API are not recorded in the collection.\n**Parameters:** JSON body fields: userId. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as an access-control test: success or 401/403 depends on the API rules for the role of the token; the expected status is not recorded in the original collection."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Create Task Permission Test",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{json_web_token_0m6y}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test sécurité\",\r\n    \"description\": \"Tester les permissions\",\r\n    \"deadline\": \"2026-12-20\",\r\n    \"project\": \"6afb31911915121a1f51f72e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								},
+								"description": "Creates a task (\"Test sécurité\") to verify what the token used is allowed to do.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/tasks`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0m6y}}.\n**Role:** Depends on the token stored in {{json_web_token_0m6y}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: title, description, deadline, project.\n**Successful response:** Used as an access-control test: success or 401/403 depends on the API rules for the role of the token; the expected status is not recorded in the original collection."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ownership and Role Verification",
+					"description": "Requests that check role (User vs Manager) and ownership rules on tasks.",
+					"item": [
+						{
+							"name": "Security - Update Task Status to Done (Permission Test) (token: 0m6y)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{json_web_token_0m6y}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"done\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"6afb333c1915121a1f51f72f",
+										"status"
+									]
+								},
+								"description": "Sets a task status to \"done\" to verify ownership/role rules on status updates.\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0m6y}}.\n**Role:** Depends on the token stored in {{json_web_token_0m6y}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: status. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as an access-control test: success or 401/403 depends on the API rules for the role of the token; the expected status is not recorded in the original collection."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Get Project Tasks (Permission Test)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{json_web_token_0efo}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"project",
+										"6afb31911915121a1f51f72e"
+									]
+								},
+								"description": "Retrieves the tasks of a project with this token to verify read access rules.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000/api/tasks/project/6afb31911915121a1f51f72e`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0efo}}.\n**Role:** Depends on the token stored in {{json_web_token_0efo}}; the role is not recorded in the original collection.\n**Parameters:** Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as an access-control test: success or 401/403 depends on the API rules for the role of the token; the expected status is not recorded in the original collection."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Update Task Status to Done (Permission Test) (token: 0efo)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{json_web_token_0efo}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"done\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks",
+										"6afb333c1915121a1f51f72f",
+										"status"
+									]
+								},
+								"description": "Sets a task status to \"done\" to verify ownership/role rules on status updates.\n\n**Method:** PUT\n**Endpoint:** `http://localhost:3000/api/tasks/6afb333c1915121a1f51f72f/status`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0efo}}.\n**Role:** Depends on the token stored in {{json_web_token_0efo}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: status. Path contains a MongoDB ObjectId (original value kept: project/task ID).\n**Successful response:** Used as an access-control test: success or 401/403 depends on the API rules for the role of the token; the expected status is not recorded in the original collection."
+							},
+							"response": []
+						},
+						{
+							"name": "Security - Create Task as Manager (Permission Test)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{json_web_token_0efo}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Tâche créée par le manager\",\r\n    \"description\": \"Test des permissions manager\",\r\n    \"deadline\": \"2026-12-25\",\r\n    \"project\": \"6afb31911915121a1f51f72e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"tasks"
+									]
+								},
+								"description": "Creates a task (\"Tâche créée par le manager\") to verify manager permissions.\n\n**Method:** POST\n**Endpoint:** `http://localhost:3000/api/tasks`\n**Authentication:** Required - Bearer token stored in {{json_web_token_0efo}}.\n**Role:** Depends on the token stored in {{json_web_token_0efo}}; the role is not recorded in the original collection.\n**Parameters:** JSON body fields: title, description, deadline, project.\n**Successful response:** Used as an access-control test: success or 401/403 depends on the API rules for the role of the token; the expected status is not recorded in the original collection."
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "7. Needs Review",
+			"description": "Requests that could not be classified because they were empty in the original collection.",
+			"item": [
+				{
+					"name": "Unassigned - Empty Request (original \"New Request\")",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000"
+						},
+						"description": "Empty request kept from the original collection: it had no URL, no auth and no body.\n\n**Method:** GET\n**Endpoint:** `http://localhost:3000`\n**Authentication:** None\n**Role:** N/A\n**Parameters:** None.\n**Successful response:** Not applicable: the original request was empty.\n\nNOTE: the original request had no URL. the base URL was set only so the request is valid; set the intended endpoint or delete this request."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "json_web_token_0m6y",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_0lf3",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_02vq",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_06qo",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_0ksv",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_0efo",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_1eji",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_0xgt",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_14qh",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_0j0k",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_0qfc",
+			"secret": true
+		},
+		{
+			"key": "json_web_token_0oqm",
+			"secret": true
+		}
+	]
+}
