@@ -22,6 +22,16 @@ const createTask = async (req, res) => {
             });
         }
 
+        // net2akdou elli el projet mta3 el user wala el user Manager
+        if (
+            req.user.role !== 'manager' &&
+            existingProject.owner.toString() !== req.user.id
+        ) {
+            return res.status(403).json({
+                message: 'Vous ne pouvez pas accéder à ce projet'
+            });
+        }
+
         const newTask = new Task({
             title,
             description,
@@ -55,6 +65,16 @@ const getTasks = async (req, res) => {
         if (!existingProject) {
             return res.status(404).json({
                 message: 'Projet introuvable'
+            });
+        }
+
+        // net2akdou elli el projet mta3 el user wala el user Manager
+        if (
+            req.user.role !== 'manager' &&
+            existingProject.owner.toString() !== req.user.id
+        ) {
+            return res.status(403).json({
+                message: 'Vous ne pouvez pas accéder à ce projet'
             });
         }
 
@@ -122,6 +142,25 @@ const updateTaskStatus = async (req, res) => {
         if (!task) {
             return res.status(404).json({
                 message: 'Tâche introuvable'
+            });
+        }
+
+        // njibou el projet mta3 el tâche
+        const existingProject = await Project.findById(task.project);
+
+        if (!existingProject) {
+            return res.status(404).json({
+                message: 'Projet introuvable'
+            });
+        }
+
+        // net2akdou elli el projet mta3 el user wala el user Manager
+        if (
+            req.user.role !== 'manager' &&
+            existingProject.owner.toString() !== req.user.id
+        ) {
+            return res.status(403).json({
+                message: 'Vous ne pouvez pas modifier cette tâche'
             });
         }
 
