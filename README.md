@@ -166,4 +166,6 @@ Authorization: Bearer VOTRE_TOKEN
 
 ## 10. Auteur
 
-Projet réalisé individuellement dans le cadre d'un projet académique.
+Nom et prénom : Yahya Basti
+
+Projet réalisé individuellement dans le cadre du mini-projet DS1 
