@@ -1,4 +1,5 @@
 
+const mongoose = require('mongoose');
 const Task = require('../models/Task');
 const Project = require('../models/Project');
 const User = require('../models/User');
@@ -11,6 +12,13 @@ const createTask = async (req, res) => {
         if (!title || !deadline || !project) {
             return res.status(400).json({
                 message: 'Veuillez remplir les champs obligatoires'
+            });
+        }
+
+        // net2akdou elli ID mta3 el projet s7i7
+        if (!mongoose.Types.ObjectId.isValid(project)) {
+            return res.status(400).json({
+                message: 'Identifiant du projet invalide'
             });
         }
 
@@ -59,6 +67,13 @@ const getTasks = async (req, res) => {
     try {
         const { projectId } = req.params;
         const { search, status, sortBy, order } = req.query;
+
+        // net2akdou elli ID mta3 el projet s7i7
+        if (!mongoose.Types.ObjectId.isValid(projectId)) {
+            return res.status(400).json({
+                message: 'Identifiant du projet invalide'
+            });
+        }
 
         const existingProject = await Project.findById(projectId);
 
@@ -137,6 +152,13 @@ const updateTaskStatus = async (req, res) => {
             });
         }
 
+        // net2akdou elli ID mta3 el tâche s7i7
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                message: 'Identifiant de la tâche invalide'
+            });
+        }
+
         const task = await Task.findById(req.params.id);
 
         if (!task) {
@@ -188,6 +210,20 @@ const assignTask = async (req, res) => {
         if (!userId) {
             return res.status(400).json({
                 message: 'Veuillez sélectionner un utilisateur'
+            });
+        }
+
+        // net2akdou elli ID mta3 el user s7i7
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({
+                message: "Identifiant de l'utilisateur invalide"
+            });
+        }
+
+        // net2akdou elli ID mta3 el tâche s7i7
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(400).json({
+                message: 'Identifiant de la tâche invalide'
             });
         }
 
